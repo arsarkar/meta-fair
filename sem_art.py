@@ -8,11 +8,13 @@ class Semart:
         self.__load()
 
     def __load(self):
-        response = requests.get(self.token.url+"/ontologies/"+self.onto+'/latest_submission'+'?display=all&'+self.token.auth)
+        response = requests.get(self.token.url+"/ontologies/"+self.onto+'/latest_submission'+'?display=all&apikey='+self.token.auth)
+        print("loading all metadata from " + self.token.url+"/ontologies/"+self.onto+'/latest_submission'+'?display=all&apikey='+self.token.auth)
         self.data = json.loads(response.text)    
     
     def get_source(self):
-        return self.token.url+"/ontologies/"+self.onto+'/download?'+self.token.auth
+        print("loading all metadata from " + self.token.url+"/ontologies/"+self.onto+'/download?apikey='+self.token.auth)
+        return self.token.url+"/ontologies/"+self.onto+'/download?apikey='+self.token.auth
     
     def get_metadata(self):
         self.metadata = self.data['@context']

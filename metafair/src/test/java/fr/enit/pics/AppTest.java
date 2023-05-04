@@ -26,7 +26,7 @@ public class AppTest
     public void readAnnotations()
     {
         App a = new App();
-        a.loadOntology("http://data.agroportal.lirmm.fr/ontologies/AGRO/download?apikey=e4b3eac1-55d2-4df7-bd9d-cd4e28a5c43d");
+        a.loadOntology("http://data.agroportal.lirmm.fr/ontologies/AGRO/download?apikey=<>"); //replace <> with portal key
         a.getOntology().annotations().forEach(an->{
             an.annotationPropertiesInSignature().forEach(s->{
                 System.out.println(s.toString());
@@ -40,7 +40,7 @@ public class AppTest
     public void deleteAnnotations()
     {
         App a = new App();
-        a.loadOntology("http://data.agroportal.lirmm.fr/ontologies/AGRO/download?apikey=e4b3eac1-55d2-4df7-bd9d-cd4e28a5c43d");
+        a.loadOntology("http://data.agroportal.lirmm.fr/ontologies/AGRO/download?apikey=<>"); //replace <> with portal key
         OWLOntologyManager man = a.getOntology().getOWLOntologyManager();
         a.getOntology().annotations().forEach(an->{
             RemoveOntologyAnnotation ra = new RemoveOntologyAnnotation(a.getOntology(), an);
@@ -58,7 +58,7 @@ public class AppTest
     public void addAnnotations()
     {
         App a = new App();
-        a.loadOntology("http://data.agroportal.lirmm.fr/ontologies/AGRO/download?apikey=e4b3eac1-55d2-4df7-bd9d-cd4e28a5c43d");
+        a.loadOntology("http://data.agroportal.lirmm.fr/ontologies/AGRO/download?apikey=<>"); //replace <> with portal key
         OWLOntologyManager man = a.getOntology().getOWLOntologyManager();
         OWLDataFactory df = man.getOWLDataFactory();
         AddOntologyAnnotation an = new AddOntologyAnnotation(a.getOntology(), df.getOWLAnnotation(df.getRDFSComment(), 
